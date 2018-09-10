@@ -1,0 +1,70 @@
+<!--pages/addrecord/addrecord.wxml-->
+<view class='addrecord' style='width:100%;height:667rpx;'>
+<!-- <view class='navigate'>
+    <button class='backbtn' style='font:50rpx bold;padding:9rpx;height:100%;margin:0rpx;background-color:#fff;border-radius:0px;' size='mini' bindtap='back'>＜</button>
+    <text class='title'>记账</text>
+    <button class='backbtn' style='font:50rpx bold;padding:9rpx;height:100%;margin:0rpx;background-color:#fff;border-radius:0px;' size='mini'>　</button>
+
+  </view>
+-->
+
+  <view class="swiper-tab">
+    <view class="swiper-tab-item {{currentTab==0?'active':''}}" data-current="0" bindtap="clickTab">支出</view>
+    <view class="swiper-tab-item {{currentTab==1?'active':''}}" data-current="1" bindtap="clickTab">收入</view>
+  </view>
+  <view class='money' style='width:100%;height:96rpx;display:flex;border-bottom: 2rpx solid #ccc;'>
+    <text style='line-height:96rpx;margin-left:20rpx;'>金额:</text>
+    <input value='' style='width:500rpx;margin-left:35rpx;height:100%;text-align:center;' placeholder='0.00' placeholder-style='text-align:center' bindconfirm='saveRecord' bindinput='chargeInput' type='digit'></input>
+  </view>
+  <swiper style='width:100%;height:100%' current="{{currentTab}}" duration="300"  bindchange="swiperTab">
+   <!--支出-->
+    <swiper-item>
+       <view class='categoryList'>
+       <block wx:for='{{categorys.pay}}' wx:key='index'>
+          <view class='categorybtn' data-typecode='{{item.typecode}}' data-typename='{{item.typename}}' bindtap='btnChosen'>
+            <image  class='categoryImg {{item.typecode===isChosen?"isChosen":""}}' src='{{item.imgsrc}}'></image>
+            <text class='typename'>{{item.typename}}</text>
+          </view>
+        </block>
+         <view class='categorybtn'  bindtap='goAddCategory'>
+          <image class='categoryImg' src='../../img/set.png' style=''></image>
+          <text class='typename'>分类</text>
+        </view>
+    
+      </view>
+    </swiper-item>
+  <!-- 收入-->
+    <swiper-item >
+      <view class='categoryList'>
+        <block wx:for='{{categorys.earn}}' wx:key='index'>
+          <view class='categorybtn' data-typecode='{{item.typecode}}' data-typename='{{item.typename}}' bindtap='btnChosen'>
+            <image  class='categoryImg {{item.typecode===isChosen?"isChosen":""}}' src='{{item.imgsrc}}'></image>
+            <text class='typename'>{{item.typename}}</text>
+          </view>
+           
+        </block>
+        <view class='categorybtn'  bindtap='goAddCategory'>
+          <image class='categoryImg' src='../../img/set.png' style=''></image>
+          <text class='typename'>分类</text>
+        </view>
+      </view>
+    </swiper-item>
+   
+  </swiper>
+  <view class='done' bindtap='saveRecord'>
+    添加
+  
+  </view>
+  
+  
+
+
+
+
+
+
+
+
+
+
+</view>
