@@ -19,7 +19,7 @@
           <view class='record-items' wx:if='{{item.charge>=0}}'>
             <text class='item-left item-show'></text>
             <image class='line-img' src='{{item.imgUrl}}'></image>
-            <text class='item-right item-show' style='color:green' decode='true'>{{item.category}}{{(item.charge}}&emsp;</text>
+            <text class='item-right item-show' style='color:green' decode='true'>{{item.category}}{{item.charge}}&emsp;</text>
           </view>
       
         <!-- 左 -->

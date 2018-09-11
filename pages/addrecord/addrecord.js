@@ -169,7 +169,6 @@ Page({
   },
   saveRecord: function (e) {
     console.log('发送请求后台保存数据后,');
-    console.log(this.data.charge);
     var that = this;
     if (!that.data.charge ||!common.rexMatch.numberCheck(that.data.charge)){
       wx.showToast({
@@ -193,30 +192,41 @@ Page({
   doSave: function () {
     var that = this;
     var dateObject = utils.transDate(new Date())
+
+    console.log(that.data.charge)  
+
     var realCharge = that.data.charge
     if (this.data.currentTab === 0) {
       realCharge = '-' + realCharge
     }
     var userFlow = app.globalData.userFlow;
-    var oneRecord = {
-      "date": (dateObject.month < 10 ? '0' + dateObject.month : dateObject.month) + '/' + (dateObject.day<10? '0'+dateObject.day :dateObject.day),
-      "month": dateObject.month,
-      "day": dateObject.day,
-      "count": null,
-      "color": "",
-      "records": [{
+    var currentDate = utils.formatTime(new Date())
+
+    if (currentDate === userFlow[0].date){
+      userFlow[0].records.unshift({
         "date": utils.formatTime(new Date()),
         "category": that.data.checkedCategory.typename,
         "color": "",
         "charge": parseFloat(realCharge)
-      }]
-    }
-    if (oneRecord.date === userFlow[0].data){
-      userFlow[0].records.unshift(oneRecord.records[0])
-    }
-    try {
+      })
+    }else{
+      userFlow.unshift({
+        "date": utils.formatTime(new Date()),
+        "month": dateObject.month,
+        "day": dateObject.day,
+        "count": null,
+        "color": "",
+        "records": [{
+          "date": utils.formatTime(new Date()),
+          "category": that.data.checkedCategory.typename,
+          "color": "",
+          "charge": parseFloat(realCharge)
+        }]
+      })
 
-      userFlow.unshift(oneRecord)
+    }
+    
+    try {
       console.log(userFlow)
       // wx.request({
       //   url: 'test.php', //仅为示例，并非真实的接口地址
@@ -244,21 +254,26 @@ Page({
         isChosen: e.currentTarget.dataset.typecode,
         checkedCategory: { "typename": e.currentTarget.dataset.typename, "typecode": e.currentTarget.dataset.typecode, "imgsrc": "" }
       })
-    console.log(that.data.checkedCategory);
   },
 
   chargeInput: function (e) {
     var charge = e.detail.value
     var rexRes = common.rexMatch.floatCheck(charge)
     console.log(rexRes)
-    if (rexRes){
-      return parseFloat(charge).toFixed(2)
+    if (null===charge||''===charge){
+      charge = 0;
     }
-
-    charge = parseFloat(charge)
+    if (rexRes){
+      charge = parseFloat(charge).toFixed(2)
+    }else{
+      charge = parseFloat(charge)
+    }
+    console.log(charge)
     this.setData({
       charge: charge,
     })
+
+    return charge
 
   },
   

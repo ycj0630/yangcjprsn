@@ -55,7 +55,7 @@ App({
           wx.showToast({
             title: '网络异常，请检查网络后重试',
             icon: 'success',
-            duration: 2000
+            duration: 10000
           })
         }
       })

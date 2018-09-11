@@ -1,9 +1,9 @@
 {
   "pages":[
-        
+                        "pages/addrecord/addrecord",
+                        
     "pages/index/index",
         "pages/home/home",
-                "pages/addrecord/addrecord",
                 
    
 

@@ -36,15 +36,16 @@ Page({
     for (var one in array){
       var dayCharge=0;
       var oneCharge=array[one].records;
-      for (var crg in oneCharge){
+
+      for (var crg in oneCharge) {
         dayCharge += oneCharge[crg].charge;
-        var colorStr = "statistics["+one+"].color";
+        var colorStr = "statistics[" + one + "].color";
         var color = dayCharge >= 0 ? 'green' : 'red';
         this.setData({
           [colorStr]: color
         })
-       
       }
+
       var dayCount = "statistics["+one+"].count";
       dayCharge = dayCharge >= 0 ? "+" + dayCharge.toFixed(2) : dayCharge.toFixed(2);
       console.log(dayCharge)
@@ -52,8 +53,8 @@ Page({
         [dayCount]: dayCharge
 
       })
-    }
 
+    }
   },
 
   /**
