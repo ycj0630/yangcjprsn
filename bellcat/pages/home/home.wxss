@@ -1,0 +1,116 @@
+/* pages/home/home.wxss */
+
+.background-view{
+  background-color: #865d6f;
+  
+}
+.line-point{
+  padding: 0;
+  margin: auto;
+  position: absolute;
+  font-size: 32rpx; 
+  color: #356;
+  z-index: 500;
+  line-height: 120rpx;
+  padding-top: 30rpx;
+  left: 0;
+  right: 0;
+
+}
+
+.topper-count{
+  position: fixed;
+  display: flex;
+  flex-direction:column;
+  height:250rpx;
+  background-color:green;
+  width: 100%;
+  z-index: 999;
+  align-items: center;
+}
+
+::-webkit-scrollbar{
+  width: 0;
+  height: 0;
+  color: transparent;
+  display:none;
+}
+
+.addbtn{
+  position: absolute;
+  border-radius:50%;
+  border:red 1rpx solid;
+  width:140rpx;
+  height:140rpx;
+  font-size: 35rpx;
+  font-weight: bold;
+  line-height: 140rpx;
+  text-align: center;
+  background-color: red;
+  z-index: 999;
+  top:178rpx;
+  
+}
+
+.date-count{
+  height: 120rpx;
+  display: flex;
+  margin: 0;
+  padding: 0;
+  text-align: center;
+}
+
+.day-show{
+  display: inline-block;
+  width: 50%;
+  background-color: grey;
+  line-height: 120rpx;
+  font-size: 30rpx;
+  text-align: center;
+  font-weight: normal;
+  padding-top: 30rpx;
+}
+
+.text-date{
+  border-right: 2rpx blue solid;
+  
+}
+.text-charge{
+  border-left: 2rpx blue solid;
+
+}
+.record-items{
+  display: flex;
+  text-align: left;
+  height: 140rpx;
+
+}
+
+.item-show{
+  display: inline-block;
+  width: 50%;
+  height: 100%;
+  text-align: center;
+  background-color: greenyellow;
+  line-height: 140rpx;
+  font-size: 45rpx;
+}
+.item-left{
+  border-right: 2rpx blue solid;
+
+}
+.item-right{
+  border-left: 2rpx blue solid;
+
+}
+
+.line-img{
+  position: absolute;
+  left: 350rpx;
+  z-index: 500;
+  width: 50rpx;
+  height: 50rpx;
+  align-self: center;
+  border-radius: 50%;
+}
+

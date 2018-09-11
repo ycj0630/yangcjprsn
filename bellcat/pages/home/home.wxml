@@ -1,0 +1,54 @@
+<!--pages/home/home.wxml-->
+<view class='background-view' style='height:{{windowheight}}rpx;width:100%;'>
+  <view class='topper-count' >
+    <view class='addbtn' bindtap='gotoadd'>记一笔</view>
+  </view>
+  <view style='height:250rpx;'></view>
+  <scroll-view scroll-y="true" style='height:100%;width:100%;'>
+      <block wx:for='{{statistics}}' wx:key='index'>
+        <view class='dayrecord'>
+
+          <view class='date-count'  wx:if='{{index===0||item.date!==statistics[index-1].date}}'>
+            <text class='text-date day-show' decode='true'>&emsp;&emsp;&emsp;&emsp;{{item.month}}月{{item.day}}日</text>
+              <text class='line-point'>●</text>
+            <text class='text-charge day-show ' style='color:{{item.color}}' decode='true'>{{item.count}}元&emsp;&emsp;&emsp;&emsp;&emsp;</text>
+          </view>
+        
+        <block wx:for='{{item.records}}' wx:key='index'>
+        <!-- 右 -->
+          <view class='record-items' wx:if='{{item.charge>=0}}'>
+            <text class='item-left item-show'></text>
+            <image class='line-img' src='{{item.imgUrl}}'></image>
+            <text class='item-right item-show' style='color:green' decode='true'>{{item.category}}{{(item.charge}}&emsp;</text>
+          </view>
+      
+        <!-- 左 -->
+          <view class='record-items' wx:else >
+            <text class='item-left item-show' style='color:red' decode='true'>&emsp;{{item.category}}{{item.charge}}</text>
+            <image class='line-img' src='{{item.imgUrl}}'></image>
+            <text class='item-right item-show' ></text>
+          </view>
+        </block>
+     
+
+
+
+    </view>
+  </block>
+</scroll-view>
+
+</view>
+
+
+
+
+
+
+
+
+
+
+
+
+
+

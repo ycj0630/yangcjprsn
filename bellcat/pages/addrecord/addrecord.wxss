@@ -1,0 +1,94 @@
+/* pages/addrecord/addrecord.wxss */
+page{
+  border: 1rpx red solid;
+  
+
+}
+.navigate{
+  height: 88rpx;
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  background-color: greenyellow;
+}
+
+
+.backbtn::after{
+
+  border: none;
+
+}
+
+.title{
+  width: 100%;
+  text-align: center;
+  padding-top:15rpx; 
+
+}
+
+.swiper-tab{
+    width: 100%;
+    border-bottom: 2rpx solid #ccc;
+    text-align: center;
+    height: 88rpx;
+    line-height: 88rpx;
+    display: flex;
+    flex-flow: row;
+    justify-content: space-around;
+}
+
+.swiper-tab-item{
+    width: 50%; 
+
+   
+}
+
+.active{
+  border-bottom: blue 8rpx solid;
+}
+
+
+.categorybtn{
+  width: 85rpx;
+  height: 120rpx;
+  padding: 20rpx;
+
+}
+
+
+.isChosen{
+  border: blue 5rpx solid;
+
+  
+}
+
+.categoryImg{
+  width:100%;
+  height:70%;
+  border-radius:50%;
+}
+
+
+
+.categoryList{
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.typename{
+  font-size:30rpx;
+  display:block;
+  width: 100%;
+  height: 30%;
+  text-align: center;
+  
+}
+
+.done{
+  background-color: greenyellow;
+  height: 80rpx;
+  width: 100%;
+  text-align: center;
+
+  line-height: 80rpx;
+}
