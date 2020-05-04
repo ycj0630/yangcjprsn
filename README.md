@@ -1,2 +1,2 @@
 # yangcjprsn
-bellcat_wxsmallapp
+bellcat_wxsmallapp for front
